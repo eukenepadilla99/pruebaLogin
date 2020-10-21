@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">pruebaLogin</string>
+    <string name="sign_out">sign out</string>
+    <string name="signed_out">signed out</string>
+    <string name="google_title_text">google title text</string>
+    <string name="disconnect">disconnect</string>
+</resources>
