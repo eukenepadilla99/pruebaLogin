@@ -33,6 +33,7 @@ public class MainActivity extends AppCompatActivity {
     public SignInButton sign_in_button;
     public LinearLayout signOutAndDisconnect;
     public TextView tvMostrarUsuario;
+    public Button signOutButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -47,6 +48,8 @@ public class MainActivity extends AppCompatActivity {
         sign_in_button=findViewById(R.id.sign_in_button);
         signOutAndDisconnect=findViewById(R.id.signOutAndDisconnect);
         tvMostrarUsuario=findViewById(R.id.tvMostrarUsuario);
+        signOutButton=findViewById(R.id.signOutButton);
+
         sign_in_button.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -74,8 +77,9 @@ public class MainActivity extends AppCompatActivity {
         if (requestCode == RC_SIGN_IN) {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             try {
+
                 // Google Sign In was successful, authenticate with Firebase
-                GoogleSignInAccount account = task.getResult(ApiException.class);
+                GoogleSignInAccount  account = task.getResult(ApiException.class);
                 Log.d("miFiltro", "firebaseAuthWithGoogle:" + account.getId());
                 handleSignInResult(task);
             } catch (ApiException e) {
@@ -116,10 +120,23 @@ public class MainActivity extends AppCompatActivity {
             sign_in_button.setVisibility(View.GONE);
             signOutAndDisconnect.setVisibility(View.VISIBLE);
             tvMostrarUsuario.setText(user.getEmail());
-
+            cerrarSesion();
         } else {
             Toast.makeText(MainActivity.this, "Authentication nono.",
                     Toast.LENGTH_SHORT).show();
         }
+    }
+
+    private void cerrarSesion() {
+        signOutButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mGoogleSignInClient.signOut();
+
+                sign_in_button.setVisibility(View.VISIBLE);
+                signOutAndDisconnect.setVisibility(View.GONE);
+                updateUI(null);
+            }
+        });
     }
 }
