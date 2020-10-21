@@ -6,17 +6,9 @@
     android:layout_height="match_parent"
     tools:context=".MainActivity">
 
-    <ProgressBar
-        android:id="@+id/progressBar"
-        style="?android:attr/progressBarStyleHorizontal"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:indeterminate="true"
-        android:visibility="invisible"
-        tools:layout_editor_absoluteX="23dp"
-        tools:layout_editor_absoluteY="151dp" />
 
     <LinearLayout
+        android:id="@+id/linearLayout"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         android:layout_weight="3"
@@ -24,32 +16,21 @@
         android:orientation="vertical"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/progressBar">
+        app:layout_constraintStart_toStartOf="parent">
 
-
-        <TextView
-            android:id="@+id/titleText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/google_title_text" />
-
-        <TextView
-            android:id="@+id/status"
-            android:text="@string/signed_out" />
-
-        <TextView
-            android:id="@+id/detail"
-            tools:text="Firebase User ID: 123456789abc" />
 
     </LinearLayout>
 
     <RelativeLayout
         android:id="@+id/relativeLayout"
-        android:layout_width="match_parent"
-        android:layout_height="0dp"
+        android:layout_width="346dp"
+        android:layout_height="175dp"
         android:layout_weight="1"
-        android:background="@color/grey_300">
+        android:background="@color/grey_300"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
         <com.google.android.gms.common.SignInButton
             android:id="@+id/sign_in_button"
@@ -61,9 +42,8 @@
 
         <LinearLayout
             android:id="@+id/signOutAndDisconnect"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_centerInParent="true"
+            android:layout_width="277dp"
+            android:layout_height="71dp"
             android:orientation="horizontal"
             android:paddingLeft="16dp"
             android:paddingRight="16dp"
@@ -86,6 +66,18 @@
         </LinearLayout>
 
     </RelativeLayout>
+
+    <TextView
+        android:id="@+id/tvMostrarUsuario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/tvMostrarUsuario"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.235"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.738" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

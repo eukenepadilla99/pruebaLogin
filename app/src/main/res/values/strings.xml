@@ -4,4 +4,7 @@
     <string name="signed_out">signed out</string>
     <string name="google_title_text">google title text</string>
     <string name="disconnect">disconnect</string>
+    <string name="server_client_id">530486316716-ranh9obpb47t4emtf4ba34c6ktjbl7l9.apps.googleusercontent.com</string>
+    <string name="client_secret">8oLV5Zl9m5pwfjj-ZApDjuy3</string>
+    <string name="tvMostrarUsuario"></string>
 </resources>
